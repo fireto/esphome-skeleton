@@ -1,0 +1,26 @@
+### <Project> main
+substitutions:
+  devicename: <project_name>
+  upperDevicename: <Descriptive name of the project>
+
+esphome:
+  name: $devicename
+  platform: ESP32
+  board: esp32dev
+
+packages:
+  wifi: !include common/wifi.yml
+  # ethernet: !include common/ethernet.yml
+  api: !include common/api.yml
+  ota: !include common/ota.yml
+  mqtt: !include common/mqtt.yml
+  logger: !include common/logger.yml
+  time: !include common/time.yml
+  web_server: !include common/webserver.yml
+
+# Individual outputs
+switch:
+  - platform: restart
+    name: $upperDevicename Restart
+
+binary_sensor:
